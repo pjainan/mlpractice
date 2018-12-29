@@ -1,11 +1,8 @@
 FROM python:3.6
 
-#RUN python --version
-#RUN pip --version
-#RUN virtualenv --version
-
 RUN apt-get update -y
 RUN apt-get install -y git
+RUN apt-get install -y unzip
 
 # update pip
 WORKDIR /remote
@@ -21,6 +18,7 @@ RUN virtualenv --system-site-packages -p python ./tensorflow && \
     pip install --upgrade pip && \
     pip install --upgrade numpy && \
     pip install --upgrade scipy && \
+    pip install --upgrade opencv-python && \
     pip install --upgrade matplotlib && \
     pip install --upgrade pandas && \
     pip install --upgrade sklearn && \
